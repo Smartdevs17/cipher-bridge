@@ -26,7 +26,7 @@ const EncryptForm = () => {
         onChange={(e) => setKey(parseInt(e.target.value))}
         placeholder="Enter key"
       />
-      <button onClick={handleEncrypt}>Encrypt</button>
+      <button className='encrypt-btn' onClick={handleEncrypt}>Encrypt</button>
       {ciphertext && <p>Ciphertext: {ciphertext}</p>}
     </div>
   );

@@ -26,7 +26,7 @@ const DecryptForm = () => {
         onChange={(e) => setKey(parseInt(e.target.value))}
         placeholder="Enter key"
       />
-      <button onClick={handleDecrypt}>Decrypt</button>
+      <button className='decrypt-btn' onClick={handleDecrypt}>Decrypt</button>
       {plaintext && <p>Plaintext: {plaintext}</p>}
     </div>
   );
