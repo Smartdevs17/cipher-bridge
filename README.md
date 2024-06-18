@@ -17,5 +17,5 @@ CipherBridge is a Caesar Cipher Text Encryption/Decryption Application designed 
 ## Setup Instructions
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Smartdevs17/cipherbridge.git
-   cd cipherbridge
+   git clone https://github.com/Smartdevs17/cipher-bridge
+   cd cipher-bridge

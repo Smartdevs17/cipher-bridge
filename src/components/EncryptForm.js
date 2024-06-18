@@ -3,11 +3,22 @@ import caesarEncrypt from '../utils/caesarEncrypt';
 
 const EncryptForm = () => {
   const [plaintext, setPlaintext] = useState('');
-  const [key, setKey] = useState(0);
+  const [key, setKey] = useState('');
   const [ciphertext, setCiphertext] = useState('');
+  const [error, setError] = useState('');
 
   const handleEncrypt = () => {
-    const result = caesarEncrypt(plaintext, key);
+    if (!plaintext || !key) {
+      setError('Both plaintext and key are required.');
+      return;
+    }
+    if (isNaN(key)) {
+      setError('Key must be a number.');
+      return;
+    }
+
+    setError('');
+    const result = caesarEncrypt(plaintext, parseInt(key));
     setCiphertext(result);
   };
 
@@ -21,12 +32,13 @@ const EncryptForm = () => {
         placeholder="Enter plaintext"
       />
       <input
-        type="number"
+        type="text"
         value={key}
-        onChange={(e) => setKey(parseInt(e.target.value))}
+        onChange={(e) => setKey(e.target.value)}
         placeholder="Enter key"
       />
       <button className='encrypt-btn' onClick={handleEncrypt}>Encrypt</button>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       {ciphertext && <p>Ciphertext: {ciphertext}</p>}
     </div>
   );
